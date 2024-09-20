@@ -24,6 +24,5 @@ export default function Kanbas() {
         </tr>
       </table>
     </div>
-);}
-
-
+  );
+}
