@@ -4,7 +4,7 @@ import AssignmentsSaveButtons from "./AssignmentsSaveButtons";
 
 export default function AssignmentEditor() {
   return (
-    <div id="wd-assignments-editor">
+    <div id="wd-assignments-editor" className="mx-4">
       <label className="fs-6" htmlFor="wd-name">
         Assignment Name
       </label>
@@ -88,37 +88,38 @@ The Kanbas application should include a link to navigate back to the landing pag
               </label>
               <br />
               <br />
-              <div className="d-flex justify-content-start">
-                <input type="checkbox" id="wd-text-entry" />
-                <label className="ms-3" htmlFor="wd-text-entry">
+              <div className="form-check d-flex justify-content-start">
+                <input className="form-check-input" type="checkbox" id="wd-text-entry" />
+                <label className="form-check-label ms-3" htmlFor="wd-text-entry">
                   Text Entry
                 </label>
+                <br />
               </div>
               <br />
-              <div className="d-flex justify-content-start">
-                <input type="checkbox" id="wd-website-url" />
-                <label className="ms-3" htmlFor="wd-website-url">
+              <div className="form-check d-flex justify-content-start">
+                <input className="form-check-input" type="checkbox" id="wd-website-url" />
+                <label className="form-check-label ms-3" htmlFor="wd-website-url">
                   Website URL
                 </label>
               </div>
               <br />
-              <div className="d-flex justify-content-start">
-                <input type="checkbox" id="wd-media-recordings" />
-                <label className="ms-3" htmlFor="wd-media-recordings">
+              <div className="form-check d-flex justify-content-start">
+                <input className="form-check-input" type="checkbox" id="wd-media-recordings" />
+                <label className="form-check-label ms-3" htmlFor="wd-media-recordings">
                   Media Recordings
                 </label>
               </div>
               <br />
-              <div className="d-flex justify-content-start">
-                <input type="checkbox" id="wd-student-annotation" />
-                <label className="ms-3" htmlFor="wd-student-annotation">
+              <div className="form-check d-flex justify-content-start">
+                <input className="form-check-input" type="checkbox" id="wd-student-annotation" />
+                <label className="form-check-label ms-3" htmlFor="wd-student-annotation">
                   Student Annotation
                 </label>
               </div>
               <br />
-              <div className="d-flex justify-content-start">
-                <input type="checkbox" id="wd-file-upload" />
-                <label className="ms-3" htmlFor="wd-file-upload">
+              <div className="form-check d-flex justify-content-start">
+                <input className="form-check-input" type="checkbox" id="wd-file-upload" />
+                <label className="form-check-label ms-3" htmlFor="wd-file-upload">
                   File Uploads
                 </label>
               </div>

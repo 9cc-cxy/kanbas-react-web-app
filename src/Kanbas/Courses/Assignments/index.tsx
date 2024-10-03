@@ -7,9 +7,9 @@ import TaskControlButtons from "./TaskControlButtons";
 
 export default function Assignments() {
   return (
-    <div className="d-flex" id="wd-home">
+    <div className="d-flex" id="wd-assignments">
       <div className="flex-fill">
-        <div id="wd-assignments" className="me-4 ms-5">
+        <div className="me-4 ms-5">
           <AssignmentControls />
           <br />
           <br />
@@ -24,7 +24,13 @@ export default function Assignments() {
               </div>
               <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                  <TaskControlButtons />
+                  <a
+                    className="wd-assignment-link text-dark"
+                    href="#/Kanbas/Courses/1234/Assignments/123"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <TaskControlButtons />
+                  </a>
                   <div>
                     <h4 className="mb-0">
                       <strong>
@@ -37,7 +43,7 @@ export default function Assignments() {
                         </a>
                       </strong>
                     </h4>
-                    <p className="mb-0">
+                    <p id="wd-assignment-description" className="mb-0">
                       <span className="text-danger">Multiple Modules</span> |
                       <span className="text-muted">
                         <strong> Not available until</strong> May 6 at 12:00am
@@ -55,7 +61,13 @@ export default function Assignments() {
               </li>
               <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                  <TaskControlButtons />
+                  <a
+                    className="wd-assignment-link text-dark"
+                    href="#/Kanbas/Courses/1234/Assignments/123"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <TaskControlButtons />
+                  </a>
                   <div>
                     <h4 className="mb-0">
                       <strong>
@@ -68,7 +80,7 @@ export default function Assignments() {
                         </a>
                       </strong>
                     </h4>
-                    <p className="mb-0">
+                    <p id="wd-assignment-description" className="mb-0">
                       <span className="text-danger">Multiple Modules</span> |
                       <span className="text-muted">
                         <strong> Not available until</strong> May 13 at 12:00am
@@ -86,7 +98,13 @@ export default function Assignments() {
               </li>
               <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                  <TaskControlButtons />
+                  <a
+                    className="wd-assignment-link text-dark"
+                    href="#/Kanbas/Courses/1234/Assignments/123"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <TaskControlButtons />
+                  </a>
                   <div>
                     <h4 className="mb-0">
                       <strong>
@@ -99,7 +117,7 @@ export default function Assignments() {
                         </a>
                       </strong>
                     </h4>
-                    <p className="mb-0">
+                    <p id="wd-assignment-description" className="mb-0">
                       <span className="text-danger">Multiple Modules</span> |
                       <span className="text-muted">
                         <strong> Not available until</strong> May 20 at 12:00am
