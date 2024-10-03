@@ -5,8 +5,10 @@ import { BsGripVertical } from "react-icons/bs";
 
 export default function Modules() {
   return (
-    <div style={{marginLeft : "20px"}}>
+    <div className="me-4 ms-5">
       <ModulesControls />
+      <br />
+      <br />
       <br />
       <br />
       <ul id="wd-modules" className="list-group rounded-0">
