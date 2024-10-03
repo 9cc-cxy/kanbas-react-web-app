@@ -1,6 +1,6 @@
 import { RxCross2 } from "react-icons/rx";
 import { MdOutlineCalendarMonth } from "react-icons/md";
-import AssignmentsSaveButtons from "./Assignment/AssignmentsSaveButtons";
+import AssignmentsSaveButtons from "./AssignmentsSaveButtons";
 
 export default function AssignmentEditor() {
   return (
@@ -164,7 +164,7 @@ The Kanbas application should include a link to navigate back to the landing pag
                 <strong>Due</strong>
               </label>
               <div className="d-flex">
-                <input type="date" className="form-control date-input" />
+                <input type="date" id="wd-assignment-date" className="form-control date-input" />
                 <div className="input-group-append">
                   <span
                     className="input-group-text d-flex justify-content-center"
@@ -183,7 +183,7 @@ The Kanbas application should include a link to navigate back to the landing pag
                   <strong>Available from</strong>
                 </label>
                 <div className="d-flex">
-                  <input type="date" className="form-control date-input" />
+                  <input type="date" id="wd-assignment-date" className="form-control date-input" />
                   <div className="input-group-append">
                     <span
                       className="input-group-text d-flex justify-content-center align-items-center"
@@ -200,7 +200,7 @@ The Kanbas application should include a link to navigate back to the landing pag
                   <strong>Until</strong>
                 </label>
                 <div className="d-flex">
-                  <input type="date" className="form-control date-input" />
+                  <input type="date" id="wd-assignment-date" className="form-control date-input" />
                   <div className="input-group-append">
                     <span
                       className="input-group-text d-flex justify-content-center align-items-center"
