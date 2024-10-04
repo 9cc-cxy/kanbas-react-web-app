@@ -89,37 +89,72 @@ The Kanbas application should include a link to navigate back to the landing pag
               <br />
               <br />
               <div className="form-check d-flex justify-content-start">
-                <input className="form-check-input" type="checkbox" id="wd-text-entry" />
-                <label className="form-check-label ms-3" htmlFor="wd-text-entry">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="wd-text-entry"
+                />
+                <label
+                  className="form-check-label ms-3"
+                  htmlFor="wd-text-entry"
+                >
                   Text Entry
                 </label>
                 <br />
               </div>
               <br />
               <div className="form-check d-flex justify-content-start">
-                <input className="form-check-input" type="checkbox" id="wd-website-url" />
-                <label className="form-check-label ms-3" htmlFor="wd-website-url">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="wd-website-url"
+                />
+                <label
+                  className="form-check-label ms-3"
+                  htmlFor="wd-website-url"
+                >
                   Website URL
                 </label>
               </div>
               <br />
               <div className="form-check d-flex justify-content-start">
-                <input className="form-check-input" type="checkbox" id="wd-media-recordings" />
-                <label className="form-check-label ms-3" htmlFor="wd-media-recordings">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="wd-media-recordings"
+                />
+                <label
+                  className="form-check-label ms-3"
+                  htmlFor="wd-media-recordings"
+                >
                   Media Recordings
                 </label>
               </div>
               <br />
               <div className="form-check d-flex justify-content-start">
-                <input className="form-check-input" type="checkbox" id="wd-student-annotation" />
-                <label className="form-check-label ms-3" htmlFor="wd-student-annotation">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="wd-student-annotation"
+                />
+                <label
+                  className="form-check-label ms-3"
+                  htmlFor="wd-student-annotation"
+                >
                   Student Annotation
                 </label>
               </div>
               <br />
               <div className="form-check d-flex justify-content-start">
-                <input className="form-check-input" type="checkbox" id="wd-file-upload" />
-                <label className="form-check-label ms-3" htmlFor="wd-file-upload">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="wd-file-upload"
+                />
+                <label
+                  className="form-check-label ms-3"
+                  htmlFor="wd-file-upload"
+                >
                   File Uploads
                 </label>
               </div>
@@ -165,11 +200,14 @@ The Kanbas application should include a link to navigate back to the landing pag
                 <strong>Due</strong>
               </label>
               <div className="d-flex">
-                <input type="date" id="wd-assignment-date" className="form-control date-input" />
+                <input
+                  type="date"
+                  id="wd-due-date"
+                  className="wd-assignment-date form-control date-input"
+                />
                 <div className="input-group-append">
                   <span
                     className="input-group-text d-flex justify-content-center"
-                    id="wd-due-date"
                     style={{ height: "40px", width: "60px" }}
                   >
                     <MdOutlineCalendarMonth />
@@ -184,11 +222,14 @@ The Kanbas application should include a link to navigate back to the landing pag
                   <strong>Available from</strong>
                 </label>
                 <div className="d-flex">
-                  <input type="date" id="wd-assignment-date" className="form-control date-input" />
+                  <input
+                    type="date"
+                    id="wd-available-from"
+                    className="form-control date-input wd-assignment-date"
+                  />
                   <div className="input-group-append">
                     <span
                       className="input-group-text d-flex justify-content-center align-items-center"
-                      id="wd-available-from"
                       style={{ height: "40px", width: "60px" }}
                     >
                       <MdOutlineCalendarMonth />
@@ -201,11 +242,14 @@ The Kanbas application should include a link to navigate back to the landing pag
                   <strong>Until</strong>
                 </label>
                 <div className="d-flex">
-                  <input type="date" id="wd-assignment-date" className="form-control date-input" />
+                  <input
+                    type="date"
+                    id="wd-available-until"
+                    className="form-control date-input wd-assignment-date"
+                  />
                   <div className="input-group-append">
                     <span
                       className="input-group-text d-flex justify-content-center align-items-center"
-                      id="wd-available-until"
                       style={{ height: "40px", width: "60px" }}
                     >
                       <MdOutlineCalendarMonth />
@@ -216,7 +260,9 @@ The Kanbas application should include a link to navigate back to the landing pag
             </div>
             <br />
           </div>
-          <br /><br /><br />
+          <br />
+          <br />
+          <br />
         </div>
         <hr />
         <AssignmentsSaveButtons />

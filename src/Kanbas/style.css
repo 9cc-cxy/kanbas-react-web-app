@@ -29,10 +29,7 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
   border-left: 3px solid green !important;
 }
 
-#wd-assignment-date::-webkit-inner-spin-button,
-#wd-assignment-date::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+.wd-assignment-date::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }
-
 
