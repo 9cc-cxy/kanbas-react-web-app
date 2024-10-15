@@ -4,8 +4,12 @@ import AssignmentControls from "./AssignmentsControls";
 import AssignmentsTabButtons from "./AssignmentsTabButtons";
 import { IoMdArrowDropdown } from "react-icons/io";
 import TaskControlButtons from "./TaskControlButtons";
+import { useParams } from "react-router";
+import * as db from "../../Database";
 
 export default function Assignments() {
+  const { cid } = useParams();
+  const assignments = db.assignments;
   return (
     <div className="d-flex" id="wd-assignments">
       <div className="flex-fill">
@@ -22,117 +26,49 @@ export default function Assignments() {
                 <IoMdArrowDropdown className="me-2 fs-3" />
                 ASSIGNMENTS <AssignmentsTabButtons />
               </div>
-              <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center">
-                  <a
-                    className="wd-assignment-link text-dark"
-                    href="#/Kanbas/Courses/1234/Assignments/123"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <TaskControlButtons />
-                  </a>
-                  <div>
-                    <h4 className="mb-0">
-                      <strong>
-                        <a
-                          className="wd-assignment-link text-dark"
-                          href="#/Kanbas/Courses/1234/Assignments/123"
-                          style={{ textDecoration: "none" }}
-                        >
-                          A1
-                        </a>
-                      </strong>
-                    </h4>
-                    <p id="wd-assignment-description" className="mb-0">
-                      <span className="text-danger">Multiple Modules</span> |
-                      <span className="text-muted">
-                        <strong> Not available until</strong> May 6 at 12:00am
-                      </span>{" "}
-                      |
-                      <br />
-                      <span className="text-muted">
-                        <strong>Due</strong> May 13 at 11:59pm
-                      </span>{" "}
-                      |<span className="text-muted"> 100 pts</span>
-                    </p>
-                  </div>
-                </div>
-                <LessonControlButtons />
-              </li>
-              <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center">
-                  <a
-                    className="wd-assignment-link text-dark"
-                    href="#/Kanbas/Courses/1234/Assignments/123"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <TaskControlButtons />
-                  </a>
-                  <div>
-                    <h4 className="mb-0">
-                      <strong>
-                        <a
-                          className="wd-assignment-link text-dark"
-                          href="#/Kanbas/Courses/1234/Assignments/123"
-                          style={{ textDecoration: "none" }}
-                        >
-                          A2
-                        </a>
-                      </strong>
-                    </h4>
-                    <p id="wd-assignment-description" className="mb-0">
-                      <span className="text-danger">Multiple Modules</span> |
-                      <span className="text-muted">
-                        <strong> Not available until</strong> May 13 at 12:00am
-                      </span>{" "}
-                      |
-                      <br />
-                      <span className="text-muted">
-                        <strong>Due</strong> May 20 at 11:59pm
-                      </span>{" "}
-                      |<span className="text-muted"> 100 pts</span>
-                    </p>
-                  </div>
-                </div>
-                <LessonControlButtons />
-              </li>
-              <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center">
-                  <a
-                    className="wd-assignment-link text-dark"
-                    href="#/Kanbas/Courses/1234/Assignments/123"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <TaskControlButtons />
-                  </a>
-                  <div>
-                    <h4 className="mb-0">
-                      <strong>
-                        <a
-                          className="wd-assignment-link text-dark"
-                          href="#/Kanbas/Courses/1234/Assignments/123"
-                          style={{ textDecoration: "none" }}
-                        >
-                          A3
-                        </a>
-                      </strong>
-                    </h4>
-                    <p id="wd-assignment-description" className="mb-0">
-                      <span className="text-danger">Multiple Modules</span> |
-                      <span className="text-muted">
-                        <strong> Not available until</strong> May 20 at 12:00am
-                      </span>{" "}
-                      |
-                      <br />
-                      <span className="text-muted">
-                        <strong>Due</strong> May 27 at 11:59pm
-                      </span>{" "}
-                      |<span className="text-muted"> 100 pts</span>
-                    </p>
-                  </div>
-                </div>
-                <LessonControlButtons />
-              </li>
+              {assignments
+                .filter((assignment: any) => assignment.course == cid)
+                .map((assignment: any) => (
+                  <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
+                    <div className="d-flex align-items-center">
+                      <a
+                        className="wd-assignment-link text-dark"
+                        href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <TaskControlButtons />
+                      </a>
+                      <div>
+                        <h4 className="mb-0">
+                          <strong>
+                            <a
+                              className="wd-assignment-link text-dark"
+                              href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                              style={{ textDecoration: "none" }}
+                            >
+                              {assignment.title}
+                            </a>
+                          </strong>
+                        </h4>
+                        <p id="wd-assignment-description" className="mb-0">
+                          <span className="text-danger">Multiple Modules</span>{" "}
+                          |
+                          <span className="text-muted">
+                            <strong> Not available until</strong>{" "}
+                            {assignment.date}{" "}
+                          </span>
+                          |
+                          <br />
+                          <span className="text-muted">
+                            <strong>Due</strong> {assignment.due}{" "}
+                          </span>
+                          |<span className="text-muted"> 100 pts</span>
+                        </p>
+                      </div>
+                    </div>
+                    <LessonControlButtons />
+                  </li>
+                ))}
             </li>
           </ul>
         </div>
