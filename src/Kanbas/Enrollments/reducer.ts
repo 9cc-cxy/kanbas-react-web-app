@@ -10,16 +10,22 @@ const enrollmentsSlice = createSlice({
   initialState,
   reducers: {
     enroll: (state, { payload: enrollment }) => {
-      const newEnrollment = {
-        _id: new Date().getTime().toString(),
-        user: enrollment.user,
-        course: enrollment.course,
-      };
-      state.enrollments = [...state.enrollments, newEnrollment];
+      if (
+        !state.enrollments.some(
+          (e) => e.user === enrollment.user && e.course === enrollment.course
+        )
+      ) {
+        const newEnrollment = {
+          _id: new Date().getTime().toString(),
+          user: enrollment.user,
+          course: enrollment.course,
+        };
+        state.enrollments.push(newEnrollment); // Add new enrollment
+      }
     },
-    unenroll: (state, { payload: enrollmentId }) => {
+    unenroll: (state, { payload: enrollment }) => {
       state.enrollments = state.enrollments.filter(
-        (e: any) => e._id !== enrollmentId
+        (e: any) => !(e.user === enrollment.user && e.course === enrollment.course)
       );
     },
   },

@@ -17,7 +17,6 @@ export default function AssignmentControlButtons({
     console.log(deleteTargetId);
   };
 
-
   return (
     <div className="float-end">
       <FaTrash
