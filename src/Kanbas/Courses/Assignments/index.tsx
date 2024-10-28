@@ -1,15 +1,18 @@
-import LessonControlButtons from "../Modules/LessonControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import AssignmentControls from "./AssignmentsControls";
 import AssignmentsTabButtons from "./AssignmentsTabButtons";
 import { IoMdArrowDropdown } from "react-icons/io";
 import TaskControlButtons from "./TaskControlButtons";
 import { useParams } from "react-router";
-import * as db from "../../Database";
+import { useSelector } from "react-redux";
+import AssignmentControlButtons from "./AssignmentControlButtons";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments;
+  const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const isFaculty = currentUser.role === "FACULTY";
+
   return (
     <div className="d-flex" id="wd-assignments">
       <div className="flex-fill">
@@ -22,12 +25,12 @@ export default function Assignments() {
           <ul id="wd-assignment-list" className="list-group rounded-0">
             <li className="wd-assignment-list list-group-item p-0 mb-5 fs-5 border-gray">
               <div className="wd-assignments-title p-4 ps-2 bg-secondary">
-                <BsGripVertical className="me-2 fs-3" />
+                {isFaculty && (<BsGripVertical className="me-2 fs-3" />)}
                 <IoMdArrowDropdown className="me-2 fs-3" />
-                ASSIGNMENTS <AssignmentsTabButtons />
+                ASSIGNMENTS {isFaculty && (<AssignmentsTabButtons />)}
               </div>
               {assignments
-                .filter((assignment: any) => assignment.course == cid)
+                .filter((assignment: any) => assignment.course === cid)
                 .map((assignment: any) => (
                   <li className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
@@ -62,11 +65,11 @@ export default function Assignments() {
                           <span className="text-muted">
                             <strong>Due</strong> {assignment.due}{" "}
                           </span>
-                          |<span className="text-muted"> 100 pts</span>
+                          |<span className="text-muted"> {assignment.points} pts</span>
                         </p>
                       </div>
                     </div>
-                    <LessonControlButtons />
+                    {isFaculty && (<AssignmentControlButtons assignmentId={assignment._id} />)}
                   </li>
                 ))}
             </li>

@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-export default function AssignmentsSaveButtons() {
+export default function AssignmentsSaveButtons({ onSave }: { onSave: () => void }) {
   const { cid } = useParams();
   return (
     <div id="wd-modules-controls" className="text-nowrap">
@@ -7,6 +7,7 @@ export default function AssignmentsSaveButtons() {
         <button
           id="wd-add-module-btn"
           className="btn btn-lg btn-danger me-1 float-end"
+          onClick={onSave}
         >
           Save
         </button>
