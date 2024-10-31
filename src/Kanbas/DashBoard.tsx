@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import * as db from "./Database";
 import { useState } from "react";
 import { enroll, unenroll } from "./Enrollments/reducer";
 
@@ -24,14 +23,15 @@ export default function Dashboard({
   const isFaculty = currentUser.role === "FACULTY";
   const isStudent = currentUser.role === "STUDENT";
   const [showEnrollments, setShowEnrollments] = useState(true);
-  const enrollments = useSelector((state: any) => state.enrollmentsReducer.enrollments);
+  const enrollments = useSelector(
+    (state: any) => state.enrollmentsReducer.enrollments
+  );
 
   const isEnrolled = (courseId: string) =>
     enrollments.some(
       (enrollment: any) =>
         enrollment.user === currentUser._id && enrollment.course === courseId
     );
-  const enrolledCourses = courses.filter((course) => isEnrolled(course._id));
 
   return (
     <div id="wd-dashboard">
@@ -160,7 +160,15 @@ function CourseCard({
               justifyContent: "space-between",
             }}
           >
-            <h5 className="wd-dashboard-course-title card-title">
+            <h5
+              className="wd-dashboard-course-title card-title"
+              style={{
+                maxHeight: "80px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
               {course.name}
             </h5>
             <p

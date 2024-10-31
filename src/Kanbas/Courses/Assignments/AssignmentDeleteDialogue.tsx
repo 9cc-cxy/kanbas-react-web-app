@@ -1,48 +1,24 @@
 export default function AssignmentDeleteDialogue({
-  dialogueTitle,
+  isOpen,
   assignmentId,
-  deleteAssignment,
+  onConfirm,
+  onCancel,
 }: {
-  dialogueTitle: string;
-  assignmentId: string;
-  deleteAssignment: (assignmentId: string) => void;
+  isOpen: boolean;
+  assignmentId: string | null;
+  onConfirm: () => void;
+  onCancel: () => void;
 }) {
+  if (!isOpen) return null;
+
   return (
-    <div
-      id="wd-add-module-dialog"
-      className="modal fade"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              {dialogueTitle}
-            </h1>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-          <div className="modal-footer">
-            <button
-              onClick={() => console.log(assignmentId)}
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Yes
-            </button>
-            <button
-              type="button"
-              data-bs-dismiss="modal"
-              className="btn btn-danger"
-            >
-              No
-            </button>
-          </div>
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h5>Do you want to delete assignment {assignmentId}?</h5>
+        <br/>
+        <div className="modal-footer">
+          <button onClick={onConfirm} className="btn btn-secondary me-3">Yes</button>
+          <button onClick={onCancel} className="btn btn-danger">No</button>
         </div>
       </div>
     </div>
