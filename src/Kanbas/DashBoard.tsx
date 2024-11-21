@@ -4,6 +4,7 @@ import { useState } from "react";
 import { enroll, unenroll } from "./Enrollments/reducer";
 
 export default function Dashboard({
+  allCourses,
   courses,
   course,
   setCourse,
@@ -11,6 +12,7 @@ export default function Dashboard({
   deleteCourse,
   updateCourse,
 }: {
+  allCourses: any[];
   courses: any[];
   course: any;
   setCourse: (course: any) => void;
@@ -18,7 +20,6 @@ export default function Dashboard({
   deleteCourse: (course: any) => void;
   updateCourse: () => void;
 }) {
-  const dispatch = useDispatch();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const isFaculty = currentUser.role === "FACULTY";
   const isStudent = currentUser.role === "STUDENT";
@@ -89,20 +90,23 @@ export default function Dashboard({
         {isFaculty
           ? `Published Courses (${courses.length})`
           : showEnrollments
-          ? `Enrolled Courses (${
-              courses.filter((course) => isEnrolled(course._id)).length
-            })`
-          : `Available Courses (${courses.length})`}
+          ? `Enrolled Courses (${courses.length})`
+          : `Available Courses (${allCourses.length})`}
       </h2>
       <hr />
 
       <div className="row row-cols-1 row-cols-md-5 g-4">
-        {courses
-          .filter(
-            (course) =>
-              isFaculty || (showEnrollments ? isEnrolled(course._id) : true)
-          )
-          .map((course) => (
+        {showEnrollments ? courses.map((course) => (
+            <CourseCard
+              key={course._id}
+              course={course}
+              currentUser={currentUser}
+              isEnrolled={isEnrolled(course._id)}
+              isStudent={isStudent}
+              deleteCourse={deleteCourse}
+              setCourse={setCourse}
+            />
+          )) : allCourses.map((course) => (
             <CourseCard
               key={course._id}
               course={course}
@@ -135,6 +139,7 @@ function CourseCard({
 }) {
   const dispatch = useDispatch();
   const isFaculty = currentUser.role === "FACULTY";
+  console.log(course.name);
 
   return (
     <div className="wd-dashboard-course col" style={{ width: "300px" }}>

@@ -4,13 +4,17 @@ import Account from "./Account";
 import Dashboard from "./DashBoard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
-import * as db from "./Database";
-import { useState } from "react";
-import store from "./store";
-import { Provider } from "react-redux";
+import { useState, useEffect } from "react";
 import ProtectedRoute from "./Account/ProtectedRoute";
+import Session from "./Account/Session";
+import * as courseClient from "./Courses/client";
+import * as userClient from "./Account/client";
+import { useSelector } from "react-redux";
+
 export default function Kanbas() {
-  const [courses, setCourses] = useState<any[]>(db.courses);
+  const [courses, setCourses] = useState<any[]>([]);
+  const [allCourses, setAllCourses] = useState<any[]>([]);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
   const [course, setCourse] = useState<any>({
     _id: "1234",
     name: "New Course",
@@ -19,16 +23,43 @@ export default function Kanbas() {
     endDate: "2023-12-15",
     description: "New Description",
   });
-  const addNewCourse = () => {
-    setCourses([
-      ...courses,
-      { ...course, _id: new Date().getTime().toString(), image: "react.png" },
-    ]);
+
+  const loadAllCourses = async () => {
+    try {
+      const allcourses = await courseClient.fetchAllCourses();
+      setAllCourses(allcourses);
+    } catch (error) {
+      console.error(error);
+    }
   };
-  const deleteCourse = (courseId: any) => {
+  useEffect(() => {
+    loadAllCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    try {
+      const courses = await userClient.findMyCourses();
+      setCourses(courses);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchCourses();
+  }, [currentUser]);
+
+  const addNewCourse = async () => {
+    const newCourse = await userClient.createCourse(course);
+    setCourses([...courses, newCourse]);
+  };
+
+  const deleteCourse = async (courseId: any) => {
+    const status = await courseClient.deleteCourse(courseId);
     setCourses(courses.filter((course) => course._id !== courseId));
   };
-  const updateCourse = () => {
+
+  const updateCourse = async () => {
+    await courseClient.updateCourse(course);
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
@@ -41,7 +72,7 @@ export default function Kanbas() {
   };
 
   return (
-    <Provider store={store}>
+    <Session>
       <div id="wd-kanbas">
         <KanbasNavigation />
         <div className="wd-main-content-offset p-3">
@@ -51,25 +82,32 @@ export default function Kanbas() {
             <Route
               path="/Dashboard"
               element={
-                <ProtectedRoute><Dashboard
-                  courses={courses}
-                  course={course}
-                  setCourse={setCourse}
-                  addNewCourse={addNewCourse}
-                  deleteCourse={deleteCourse}
-                  updateCourse={updateCourse}
-                /></ProtectedRoute>
+                <ProtectedRoute>
+                  <Dashboard
+                    allCourses={allCourses}
+                    courses={courses}
+                    course={course}
+                    setCourse={setCourse}
+                    addNewCourse={addNewCourse}
+                    deleteCourse={deleteCourse}
+                    updateCourse={updateCourse}
+                  />
+                </ProtectedRoute>
               }
             />
             <Route
               path="/Courses/:cid/*"
-              element={<ProtectedRoute><Courses courses={courses} /></ProtectedRoute>}
+              element={
+                <ProtectedRoute>
+                  <Courses courses={allCourses} />
+                </ProtectedRoute>
+              }
             />
             <Route path="/Calendar" element={<h1>Calendar</h1>} />
-            <Route path="/Inbox" element={<h1>Inbox</h1>} /> 
+            <Route path="/Inbox" element={<h1>Inbox</h1>} />
           </Routes>
         </div>
       </div>
-    </Provider>
+    </Session>
   );
 }
