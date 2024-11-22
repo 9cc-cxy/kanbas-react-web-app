@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { enroll, unenroll } from "./Enrollments/reducer";
+import * as enrollmentsClient from "./Enrollments/client";
 
 export default function Dashboard({
   allCourses,
@@ -23,16 +24,10 @@ export default function Dashboard({
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const isFaculty = currentUser.role === "FACULTY";
   const isStudent = currentUser.role === "STUDENT";
-  const [showEnrollments, setShowEnrollments] = useState(true);
-  const enrollments = useSelector(
-    (state: any) => state.enrollmentsReducer.enrollments
-  );
+  const [showEnrollments, setShowEnrollments] = useState(false);
 
   const isEnrolled = (courseId: string) =>
-    enrollments.some(
-      (enrollment: any) =>
-        enrollment.user === currentUser._id && enrollment.course === courseId
-    );
+    courses.some((course: any) => course._id === courseId);
 
   return (
     <div id="wd-dashboard">
@@ -96,17 +91,8 @@ export default function Dashboard({
       <hr />
 
       <div className="row row-cols-1 row-cols-md-5 g-4">
-        {showEnrollments ? courses.map((course) => (
-            <CourseCard
-              key={course._id}
-              course={course}
-              currentUser={currentUser}
-              isEnrolled={isEnrolled(course._id)}
-              isStudent={isStudent}
-              deleteCourse={deleteCourse}
-              setCourse={setCourse}
-            />
-          )) : allCourses.map((course) => (
+        {isFaculty &&
+          courses.map((course) => (
             <CourseCard
               key={course._id}
               course={course}
@@ -117,6 +103,30 @@ export default function Dashboard({
               setCourse={setCourse}
             />
           ))}
+        {isStudent &&
+          (showEnrollments
+            ? courses.map((course) => (
+                <CourseCard
+                  key={course._id}
+                  course={course}
+                  currentUser={currentUser}
+                  isEnrolled={true}
+                  isStudent={isStudent}
+                  deleteCourse={deleteCourse}
+                  setCourse={setCourse}
+                />
+              ))
+            : allCourses.map((course) => (
+                <CourseCard
+                  key={course._id}
+                  course={course}
+                  currentUser={currentUser}
+                  isEnrolled={isEnrolled(course._id)}
+                  isStudent={isStudent}
+                  deleteCourse={deleteCourse}
+                  setCourse={setCourse}
+                />
+              )))}
       </div>
     </div>
   );
@@ -139,7 +149,22 @@ function CourseCard({
 }) {
   const dispatch = useDispatch();
   const isFaculty = currentUser.role === "FACULTY";
-  console.log(course.name);
+
+  const createEnrollment = async () => {
+    const newEnrollments = await enrollmentsClient.createEnrollment(
+      course._id,
+      currentUser._id
+    );
+    dispatch(enroll(newEnrollments));
+  };
+
+  const deleteEnrollment = async () => {
+    const newEnrollments = await enrollmentsClient.deleteEnrollment(
+      course._id,
+      currentUser._id
+    );
+    dispatch(unenroll(newEnrollments));
+  };
 
   return (
     <div className="wd-dashboard-course col" style={{ width: "300px" }}>
@@ -195,9 +220,8 @@ function CourseCard({
                   className="btn btn-danger ms-2"
                   onClick={(e) => {
                     e.preventDefault();
-                    dispatch(
-                      unenroll({ user: currentUser._id, course: course._id })
-                    );
+                    deleteEnrollment();
+                    setTimeout(() => window.location.reload(), 100);
                   }}
                 >
                   Unenroll
@@ -208,9 +232,8 @@ function CourseCard({
                   className="btn btn-success ms-2"
                   onClick={(e) => {
                     e.preventDefault();
-                    dispatch(
-                      enroll({ user: currentUser._id, course: course._id })
-                    );
+                    createEnrollment();
+                    setTimeout(() => window.location.reload(), 100);
                   }}
                 >
                   Enroll

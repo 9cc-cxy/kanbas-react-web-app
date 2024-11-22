@@ -28,6 +28,7 @@ export default function Kanbas() {
     try {
       const allcourses = await courseClient.fetchAllCourses();
       setAllCourses(allcourses);
+      console.log(allCourses);
     } catch (error) {
       console.error(error);
     }
@@ -39,6 +40,7 @@ export default function Kanbas() {
   const fetchCourses = async () => {
     try {
       const courses = await userClient.findMyCourses();
+      console.log(courses);
       setCourses(courses);
     } catch (error) {
       console.error(error);
