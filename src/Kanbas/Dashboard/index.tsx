@@ -26,6 +26,7 @@ export default function Dashboard({
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const isFaculty = currentUser.role === "FACULTY";
   const isStudent = currentUser.role === "STUDENT";
+  console.log(courses);
 
   return (
     <div id="wd-dashboard">

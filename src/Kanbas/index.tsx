@@ -15,7 +15,7 @@ import Session from "./Account/Session";
 
 export default function Kanbas() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-  const [courses, setCourses] = useState<any[]>(db.courses);
+  const [courses, setCourses] = useState<any[]>([]);
   const [course, setCourse] = useState<any>({
     _id: "1234",
     name: "New Course",
