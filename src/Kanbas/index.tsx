@@ -1,20 +1,20 @@
 import { Routes, Route, Navigate } from "react-router";
 import "./style.css";
 import Account from "./Account";
-import Dashboard from "./DashBoard";
+import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
-import { useState, useEffect } from "react";
+import * as db from "./Database";
+import { useEffect, useState } from "react";
+import store from "./store";
+import { Provider, useSelector } from "react-redux";
 import ProtectedRoute from "./Account/ProtectedRoute";
-import Session from "./Account/Session";
-import * as courseClient from "./Courses/client";
 import * as userClient from "./Account/client";
-import { useSelector } from "react-redux";
+import * as courseClient from "./Courses/client";
 
 export default function Kanbas() {
-  const [courses, setCourses] = useState<any[]>([]);
-  const [allCourses, setAllCourses] = useState<any[]>([]);
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const [courses, setCourses] = useState<any[]>(db.courses);
   const [course, setCourse] = useState<any>({
     _id: "1234",
     name: "New Course",
@@ -23,45 +23,53 @@ export default function Kanbas() {
     endDate: "2023-12-15",
     description: "New Description",
   });
+  const [enrolling, setEnrolling] = useState<boolean>(false);
 
-  const loadAllCourses = async () => {
+  const findCoursesForUser = async () => {
     try {
-      const allcourses = await courseClient.fetchAllCourses();
-      setAllCourses(allcourses);
-      console.log(allCourses);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  useEffect(() => {
-    loadAllCourses();
-  }, []);
-
-  const fetchCourses = async () => {
-    try {
-      const courses = await userClient.findMyCourses();
-      console.log(courses);
+      const courses = await userClient.findCoursesForUser(currentUser._id);
       setCourses(courses);
     } catch (error) {
       console.error(error);
     }
   };
-  useEffect(() => {
-    fetchCourses();
-  }, [currentUser]);
-
-  const addNewCourse = async () => {
-    const newCourse = await userClient.createCourse(course);
-    setCourses([...courses, newCourse]);
+  const fetchCourses = async () => {
+    try {
+      const allCourses = await courseClient.fetchAllCourses();
+      const enrolledCourses = await userClient.findCoursesForUser(
+        currentUser._id
+      );
+      const courses = allCourses.map((course: any) => {
+        if (enrolledCourses.find((c: any) => c._id === course._id)) {
+          return { ...course, enrolled: true };
+        } else {
+          return course;
+        }
+      });
+      setCourses(courses);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const deleteCourse = async (courseId: any) => {
-    const status = await courseClient.deleteCourse(courseId);
+  useEffect(() => {
+    if (enrolling) {
+      fetchCourses();
+    } else {
+      findCoursesForUser();
+    }
+  }, [currentUser, enrolling]);
+
+  const addNewCourse = () => {
+    setCourses([
+      ...courses,
+      { ...course, _id: new Date().getTime().toString(), image: "react.png" },
+    ]);
+  };
+  const deleteCourse = (courseId: any) => {
     setCourses(courses.filter((course) => course._id !== courseId));
   };
-
-  const updateCourse = async () => {
-    await courseClient.updateCourse(course);
+  const updateCourse = () => {
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
@@ -74,7 +82,7 @@ export default function Kanbas() {
   };
 
   return (
-    <Session>
+    <Provider store={store}>
       <div id="wd-kanbas">
         <KanbasNavigation />
         <div className="wd-main-content-offset p-3">
@@ -86,13 +94,14 @@ export default function Kanbas() {
               element={
                 <ProtectedRoute>
                   <Dashboard
-                    allCourses={allCourses}
                     courses={courses}
                     course={course}
                     setCourse={setCourse}
                     addNewCourse={addNewCourse}
                     deleteCourse={deleteCourse}
                     updateCourse={updateCourse}
+                    enrolling={enrolling}
+                    setEnrolling={setEnrolling}
                   />
                 </ProtectedRoute>
               }
@@ -101,7 +110,7 @@ export default function Kanbas() {
               path="/Courses/:cid/*"
               element={
                 <ProtectedRoute>
-                  <Courses courses={allCourses} />
+                  <Courses courses={courses} />
                 </ProtectedRoute>
               }
             />
@@ -110,6 +119,6 @@ export default function Kanbas() {
           </Routes>
         </div>
       </div>
-    </Session>
+    </Provider>
   );
 }
