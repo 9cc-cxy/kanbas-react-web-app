@@ -6,7 +6,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
-import * as accountClient from "../Account/client";
+import * as courseClient from "../Courses/client";
 import { useEffect, useState } from "react";
 
 export default function Courses({ courses }: { courses: any[]; }) {
@@ -16,7 +16,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
   const [users, setUsers] = useState<any[]>([]);
 
   const fetchUsers = async () => {
-    const users = await accountClient.findAllUsers();
+    const users = await courseClient.findUsersForCourse(cid as string);
     setUsers(users);
   }; 
   useEffect(() => {

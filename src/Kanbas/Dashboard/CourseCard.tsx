@@ -10,6 +10,7 @@ export default function CourseCard({
   deleteCourse,
   setCourse,
   enrolling,
+  updateEnrollment,
 }: {
   course: any;
   currentUser: any;
@@ -18,8 +19,8 @@ export default function CourseCard({
   deleteCourse: (courseId: string) => void;
   setCourse: (course: any) => void;
   enrolling: boolean;
+  updateEnrollment: (courseId: string, enrolled: boolean) => void;
 }) {
-  const dispatch = useDispatch();
   const isFaculty = currentUser.role === "FACULTY";
 
   return (
@@ -33,7 +34,7 @@ export default function CourseCard({
           className="wd-dashboard-course-link text-decoration-none text-dark"
         >
           <img
-            src={`/images/courses/${course.image}`}
+            src={`/images/courses/${course.image ? course.image : 'react.png'}`}
             width="100%"
             height={160}
           />
@@ -55,15 +56,6 @@ export default function CourseCard({
                 whiteSpace: "nowrap",
               }}
             >
-              {enrolling && (
-                <button
-                  className={`btn ${
-                    course.enrolled ? "btn-danger" : "btn-success"
-                  } float-end`}
-                >
-                  {course.enrolled ? "Unenroll" : "Enroll"}
-                </button>
-              )}
               {course.name}
             </h5>
             <p
@@ -80,32 +72,20 @@ export default function CourseCard({
               >
                 Go
               </button>
-              {isEnrolled && isStudent && (
+              {enrolling && isStudent && (
                 <button
-                  className="btn btn-danger ms-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    dispatch(
-                      unenroll({ user: currentUser._id, course: course._id })
-                    );
+                  className={`btn ${
+                    course.enrolled ? "btn-danger" : "btn-success"
+                  } float-end`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    updateEnrollment(course._id, !course.enrolled);
                   }}
                 >
-                  Unenroll
+                  {course.enrolled ? "Unenroll" : "Enroll"}
                 </button>
               )}
-              {!isEnrolled && isStudent && (
-                <button
-                  className="btn btn-success ms-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    dispatch(
-                      enroll({ user: currentUser._id, course: course._id })
-                    );
-                  }}
-                >
-                  Enroll
-                </button>
-              )}
+              
               {isFaculty && (
                 <>
                   <button
