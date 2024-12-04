@@ -84,7 +84,6 @@ export default function Dashboard({
       <div className="row row-cols-1 row-cols-md-5 g-4">
         {courses.map((course) => (
           <CourseCard
-            key={course._id}
             courseId={course._id}
             course={course}
             currentUser={currentUser}
