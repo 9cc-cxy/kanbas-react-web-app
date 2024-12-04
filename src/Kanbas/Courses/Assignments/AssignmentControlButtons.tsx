@@ -19,7 +19,7 @@ export default function AssignmentControlButtons({ assignmentId }: { assignmentI
 
   const handleDeleteConfirm = async () => {
     if (deleteTarget) {
-      assignmentsClient.deleteAssignment(deleteTarget);
+      await assignmentsClient.deleteAssignment(deleteTarget);
       dispatch(deleteAssignment(deleteTarget));
       setDeleteTarget(null); 
     }

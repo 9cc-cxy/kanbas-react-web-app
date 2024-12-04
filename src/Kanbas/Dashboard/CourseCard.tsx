@@ -5,7 +5,6 @@ import { enroll, unenroll } from "../Enrollments/reducer";
 export default function CourseCard({
   course,
   currentUser,
-  isEnrolled,
   isStudent,
   deleteCourse,
   setCourse,
@@ -14,7 +13,6 @@ export default function CourseCard({
 }: {
   course: any;
   currentUser: any;
-  isEnrolled: boolean;
   isStudent: boolean;
   deleteCourse: (courseId: string) => void;
   setCourse: (course: any) => void;

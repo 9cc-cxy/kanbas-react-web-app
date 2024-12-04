@@ -26,15 +26,6 @@ export default function Dashboard({
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const isFaculty = currentUser.role === "FACULTY";
   const isStudent = currentUser.role === "STUDENT";
-  const enrollments = useSelector(
-    (state: any) => state.enrollmentsReducer.enrollments
-  );
-
-  const isEnrolled = (courseId: string) =>
-    enrollments.some(
-      (enrollment: any) =>
-        enrollment.user === currentUser._id && enrollment.course === courseId
-    );
 
   return (
     <div id="wd-dashboard">
@@ -96,7 +87,6 @@ export default function Dashboard({
             key={course._id}
             course={course}
             currentUser={currentUser}
-            isEnrolled={isEnrolled(course._id)}
             isStudent={isStudent}
             deleteCourse={deleteCourse}
             setCourse={setCourse}

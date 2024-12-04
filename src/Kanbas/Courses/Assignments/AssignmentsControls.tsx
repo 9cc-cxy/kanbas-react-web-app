@@ -7,7 +7,6 @@ export default function AssignmentsControls() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const isFaculty = currentUser.role === "FACULTY";
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { cid } = useParams();
   const handleAddAssignment = () => {
     const newAssignmentId = new Date().getTime().toString();
