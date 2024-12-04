@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { enroll, unenroll } from "../Enrollments/reducer";
 
 export default function CourseCard({
+  courseId,
   course,
   currentUser,
   isStudent,
@@ -11,6 +12,7 @@ export default function CourseCard({
   enrolling,
   updateEnrollment,
 }: {
+  courseId: string;
   course: any;
   currentUser: any;
   isStudent: boolean;
@@ -28,7 +30,7 @@ export default function CourseCard({
         style={{ height: "100%" }}
       >
         <Link
-          to={`/Kanbas/Courses/${course._id}/Home`}
+          to={`/Kanbas/Courses/${courseId}/Home`}
           className="wd-dashboard-course-link text-decoration-none text-dark"
         >
           <img

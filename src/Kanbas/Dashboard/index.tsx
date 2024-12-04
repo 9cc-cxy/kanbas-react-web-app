@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+
 import CourseCard from "./CourseCard";
 
 export default function Dashboard({
@@ -85,6 +85,7 @@ export default function Dashboard({
         {courses.map((course) => (
           <CourseCard
             key={course._id}
+            courseId={course._id}
             course={course}
             currentUser={currentUser}
             isStudent={isStudent}

@@ -1,0 +1,270 @@
+[{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c620"
+  },
+  "id": "A101",
+  "title": "Propulsion Assignment",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc0"
+  },
+  "date": "May 5, 2024",
+  "due": "May 5, 2024",
+  "points": 123,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 19 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c621"
+  },
+  "id": "A102",
+  "title": "Combustion Analysis",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc0"
+  },
+  "date": "April 25 at 9:00am",
+  "due": "May 2 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 29 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c622"
+  },
+  "id": "A103",
+  "title": "Nozzle Design Project",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc0"
+  },
+  "date": "May 1 at 10:00am",
+  "due": "May 8 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "May 5 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c623"
+  },
+  "id": "A201",
+  "title": "Aerodynamics Quiz",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc1"
+  },
+  "date": "March 10 at 10:00am",
+  "due": "March 17 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 14 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c624"
+  },
+  "id": "A202",
+  "title": "Flow Analysis",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc1"
+  },
+  "date": "March 18 at 8:00am",
+  "due": "March 25 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 22 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c625"
+  },
+  "id": "A203",
+  "title": "Heating Analysis",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc1"
+  },
+  "date": "March 30 at 9:00am",
+  "due": "April 6 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 3 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c626"
+  },
+  "id": "A301",
+  "title": "Structural Design Task",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc2"
+  },
+  "date": "April 12 at 9:00am",
+  "due": "April 19 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 16 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c627"
+  },
+  "id": "A302",
+  "title": "Orbital Calculations",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc2"
+  },
+  "date": "April 20 at 10:00am",
+  "due": "April 27 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 24 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c628"
+  },
+  "id": "A303",
+  "title": "Systems Engineering Exam",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc2"
+  },
+  "date": "May 5 at 8:00am",
+  "due": "May 12 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "May 9 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c629"
+  },
+  "id": "A401",
+  "title": "Organic Chemistry Basics",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc3"
+  },
+  "date": "March 5 at 8:00am",
+  "due": "March 12 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 9 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c62a"
+  },
+  "id": "A402",
+  "title": "Stereochemistry Assignment",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc3"
+  },
+  "date": "March 14 at 9:00am",
+  "due": "March 21 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 18 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c62b"
+  },
+  "id": "A403",
+  "title": "Spectroscopy Report",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc3"
+  },
+  "date": "March 28 at 8:00am",
+  "due": "April 4 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 5 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c62c"
+  },
+  "id": "A501",
+  "title": "Metal Complexes Assignment",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc4"
+  },
+  "date": "April 10 at 8:00am",
+  "due": "April 17 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 18 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c62d"
+  },
+  "id": "A502",
+  "title": "Organometallic Chemistry Quiz",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc4"
+  },
+  "date": "April 18 at 9:00am",
+  "due": "April 25 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "April 26 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c62e"
+  },
+  "id": "A503",
+  "title": "Inorganic Synthesis Lab",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc4"
+  },
+  "date": "April 27 at 10:00am",
+  "due": "May 4 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "May 5 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c62f"
+  },
+  "id": "A601",
+  "title": "Thermodynamics Problem Set",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc5"
+  },
+  "date": "March 1 at 8:00am",
+  "due": "March 8 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 9 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c630"
+  },
+  "id": "A602",
+  "title": "Quantum Chemistry Exam",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc5"
+  },
+  "date": "March 10 at 9:00am",
+  "due": "March 17 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 18 at 11:59pm"
+},
+{
+  "_id": {
+    "$oid": "674f6d05c90f2c6dfee0c631"
+  },
+  "id": "A603",
+  "title": "Spectroscopy Techniques Assignment",
+  "course": {
+    "$oid": "67508a286c903fee9624fdc5"
+  },
+  "date": "March 20 at 8:00am",
+  "due": "March 27 at 11:59pm",
+  "points": 100,
+  "description": "\nThe assignment is available online \n\nSubmit a link to the landing page of your Web application running on Netlify.\n\nThe landing page should include the following: \n\n• Your full name and section\n• Links to each of the lab assignments\n• Link to the Kanbas application\n• Links to all relevant source code repositories \n\nThe Kanbas application should include a link to navigate back to the landing page.",
+  "availableUntil": "March 28 at 11:59pm"
+}]

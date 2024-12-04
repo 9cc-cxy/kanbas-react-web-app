@@ -7,7 +7,7 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { setAssignments } from "./reducer";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import * as coursesClient from "../client";
 
 export default function Assignments() {
