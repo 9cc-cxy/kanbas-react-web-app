@@ -14,6 +14,7 @@ export default function App() {
           <Route path="/Kanbas/*" element={<Kanbas />} />
         </Routes>
       </div>
-    </HashRouter></Provider>
+    </HashRouter>
+    </Provider>
   );
 }

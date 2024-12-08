@@ -26,7 +26,7 @@ export default function Dashboard({
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const isFaculty = currentUser.role === "FACULTY";
   const isStudent = currentUser.role === "STUDENT";
-  console.log(courses);
+
 
   return (
     <div id="wd-dashboard">
@@ -37,7 +37,7 @@ export default function Dashboard({
           className="float-end btn btn-primary"
         >
           {enrolling ? "My Courses" : "All Courses"}
-        </button> }
+        </button>}
       </h1>
       <hr />
 
@@ -77,7 +77,7 @@ export default function Dashboard({
       )}
 
       <h2 id="wd-dashboard-courses">
-        {isFaculty ? `Published ` : !enrolling ? `Enrolled ` : `Available `}
+        {!enrolling ? (isFaculty ? `Published ` : `Enrolled `) : `Available `}
         {`Courses (${courses.length})`}
       </h2>
       <hr />

@@ -24,7 +24,7 @@ export default function Kanbas() {
     endDate: "2023-12-15",
     description: "New Description",
   });
-  const [enrolling, setEnrolling] = useState<boolean>(true);
+  const [enrolling, setEnrolling] = useState<boolean>(false);
 
   const findCoursesForUser = async () => {
     try {
@@ -58,6 +58,7 @@ export default function Kanbas() {
       const enrolledCourses = await userClient.findCoursesForUser(
         currentUser._id
       );
+      console.log(enrolledCourses);
       const courses = allCourses.map((course: any) => {
         if (enrolledCourses.find((c: any) => c._id === course._id)) {
           return { ...course, enrolled: true };
